@@ -1,0 +1,86 @@
+
+20240408
+
+ItemRepository  <-- JpaRepository <-- ListCrudRepository <-- CrudRepository
+
+조상 interface 로부터 상속받은 메소드들을 사용할 수 있음
+
+조상 interface 로부터 상속받은 메소드들
+
+<S extends T> save(S entity)  :  Entity 저장과 수정
+void delete(T entity)         :  Entity 삭제하기
+count()                       :  Entity 총 개수 반환하기
+Iterable<T> findAll()         :  모든 Entity 조회하기
+ 
+ 
+ 
+Query Method
+
+Repository Interface 에 정의된 naming rule을 사용해서
+추상 method 를 작성하면 Query 가 실행됨 
+
+ex)
+  find + (entity: 생략) + By + 검색할변수이름
+  
+  List<Item> findByItemName(String itemName);
+  List<Item> findByItemNameOrItemDetail(String itemName, String itemDetail);
+  
+  LessThan 조건 검색
+  List<Item> findByPriceLessThan(Integer price);
+
+
+20240409
+
+  LessThan 조건 검색 + OrderBy
+  List<Item> findByPriceLessThanOrderByPriceDesc(Integer price);
+
+
+  @Query 어노테이션
+    ㄴ JPQL(Java Persistence Query Language)
+       DB 의 table 을 대상으로 실행되는 query 문이 아니고
+       DB 의 table 과 mapping 된 entity 객체를 대상으로 실행되는 query 문임
+       
+       
+  @Query 어노테이션의 nativeQuery 속성을 사용해서 
+   일반 sql 문을 사용할 수 있음
+
+
+   Querydsl : JPQL 을 code 로 작성할 수 있도록 해 주는 Builder API
+              동적으로 query 문을 생성함
+              java code 로 작성함 <-- compile 시에 오류를 발견할 수 있음item 
+                
+   
+   
+20240411
+
+  Spring Security
+  
+  회원가입
+  로그인, 로그아웃
+  페이지 접근권한
+  
+  ORM(Object Relation(Relational) Mapping)
+  
+  MyBatis <-- Mapper
+  JPA     <-- JpaRepository interface 에서 제공하는 메소드 사용
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+   
+ 
+ 
+ 
+ 

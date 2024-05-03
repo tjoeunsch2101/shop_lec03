@@ -2,6 +2,7 @@
 20240408
 
 ItemRepository  <-- JpaRepository <-- ListCrudRepository <-- CrudRepository
+    JpaRepository 으로부터 상속받으면 JpaRepository 에 있는 기능과 속성을 사용할 수 있다는 의미
 
 조상 interface 로부터 상속받은 메소드들을 사용할 수 있음
 
